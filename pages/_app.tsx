@@ -1,8 +1,9 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { MantineProvider } from '@mantine/core';
-import { ReactQueryProvider } from './contexts/react-query-context';
+import { ReactQueryProvider } from '../src/contexts/react-query-context';
+
 import 'dayjs/locale/zh-cn';
+import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
