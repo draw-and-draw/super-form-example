@@ -1,6 +1,6 @@
 import { Button, Group, Stack } from '@mantine/core';
 import { useFormContext } from 'react-hook-form';
-import { FeeTextInput, FeeNumberInput, FeeSelect } from '../Fee';
+import { FeeTextInput, FeeNumberInput, FeeSelect, FeeDatePicker } from '../Fee';
 import Info from './components/Info';
 import { professionData } from './Form.controls';
 
@@ -28,6 +28,7 @@ const FormFields = () => {
           onFieldChange={(v) => setValue('profession.name', professionData.find((item) => item.value === v)?.label)}
           data={professionData}
         />
+        <FeeDatePicker name="date" label="生日" withAsterisk />
         <Button type="submit">提交</Button>
       </Stack>
       <Info /> {/* 额外组件，不用管 */}
