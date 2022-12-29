@@ -8,7 +8,7 @@ export interface ValueItem {
 // 表单值类型
 export interface FormValuesProps extends FieldValues {
   name: string;
-  age: number;
+  age: string;
   profession: ValueItem;
 }
 
