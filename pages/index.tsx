@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const formData = useFormData<FormValuesProps>({
-    initialValues: { name: 'zyyy', age: '18', profession: { id: '1', name: null } },
+    initialValues: { name: 'zyyy', age: '18', profession: { id: '1', name: null },date: new Date() },
     onSubmit: async (data) => console.log(data),
     validationResolver: yupResolver(
       yup
@@ -19,6 +19,7 @@ export default function Home() {
         .shape({
           name: yup.string().required('请输入名称'),
           age: yup.string().required('请输入年龄'),
+          date: yup.string().nullable().required('请选择生日'),
           profession: yup
             .object()
             .shape({

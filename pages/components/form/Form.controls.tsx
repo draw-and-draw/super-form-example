@@ -10,6 +10,7 @@ export interface FormValuesProps extends FieldValues {
   name: string;
   age: string;
   profession: ValueItem;
+  date: Date | null;
 }
 
 // 表单项使用的数据
