@@ -1,12 +1,11 @@
-import { TextInput, TextInputProps, useComponentDefaultProps } from '@mantine/core';
+import { useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
 import { CustomControllerProps } from '../../types';
 import React from 'react';
 import { DatePicker, DatePickerProps } from '@mantine/dates';
 
 type FeeDatePickerProps<T extends FieldValues> = Omit<
-DatePickerProps &
-    React.RefAttributes<HTMLInputElement> & { onFieldChange?: (v: Date|null) => void },
+  DatePickerProps & React.RefAttributes<HTMLInputElement> & { onFieldChange?: (v: Date | null) => void },
   'value' | 'error' | 'onChange'
 > &
   CustomControllerProps<T>;
