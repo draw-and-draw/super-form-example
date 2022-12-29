@@ -53,7 +53,7 @@ const FeeNumberInput = <T extends FieldValues>(props: FeeNumberInputProps<T>) =>
     field: ControllerRenderProps<FieldValues, (string | undefined) & Path<UnPackAsyncDefaultValues<T>>>,
   ) => {
     // 去除非数字字符
-    let toggleValue = (mergedProps.parser?.(e.target.value) || e.target.value).replace(/[^0-9.\-]/g, '');
+    let toggleValue = (mergedProps.parser?.(e.target.value) || e.target.value).replace(/[^0-9.-]/g, '');
     if (toggleValue !== displayValue && toggleValue.match(/^((-?\d*\.(\d+)?)|(-?\d*?))$/)) {
       field.onChange(toggleValue);
       mergedProps.onFieldChange?.(toggleValue);
