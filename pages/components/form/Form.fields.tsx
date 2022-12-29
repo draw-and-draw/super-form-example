@@ -1,8 +1,16 @@
 import { Button, Group, Stack } from '@mantine/core';
 import { useFormContext } from 'react-hook-form';
-import { FeeTextInput, FeeNumberInput, FeeSelect, FeeDatePicker } from '../Fee';
+import {
+  FeeTextInput,
+  FeeNumberInput,
+  FeeSelect,
+  FeeDatePicker,
+  FeeTextarea,
+  FeeRadioGroup,
+  FeePasswordInput,
+} from '../Fee';
 import Info from './components/Info';
-import { professionData } from './Form.controls';
+import { genreData, professionData } from './Form.controls';
 
 const FormFields = () => {
   const { setValue } = useFormContext();
@@ -13,8 +21,11 @@ const FormFields = () => {
         sx={{
           width: 300,
         }}
+        spacing={2}
       >
         <FeeTextInput name="name" label="名称" withAsterisk />
+        <FeePasswordInput name="password" label="密码" withAsterisk />
+        <FeeRadioGroup name="genre" label="性别" data={genreData} withAsterisk />
         <FeeNumberInput
           name="age"
           label="年龄"
@@ -26,13 +37,13 @@ const FormFields = () => {
           withAsterisk
         />
         <FeeSelect
-          name="profession.id"
+          name={{ id: 'profession.id', name: 'profession.name' }}
           label="职业"
           withAsterisk
-          onFieldChange={(v) => setValue('profession.name', professionData.find((item) => item.value === v)?.label)}
           data={professionData}
         />
-        <FeeDatePicker name="date" label="生日" withAsterisk />
+        <FeeDatePicker name="birthday" label="生日" withAsterisk />
+        <FeeTextarea name="description" label="个人介绍" withAsterisk />
         <Button type="submit">提交</Button>
       </Stack>
       <Info /> {/* 额外组件，不用管 */}

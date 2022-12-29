@@ -4,14 +4,11 @@ import React from 'react';
 import { CustomControllerProps } from '../../types';
 
 type FeePasswordInputProps<T extends FieldValues> = Omit<
-  PasswordInputProps &
-    React.RefAttributes<HTMLInputElement> & {
-      onFieldChange?: (v: React.ChangeEvent<HTMLInputElement>) => void;
-      type: 'text' | 'password';
-    },
+  PasswordInputProps & React.RefAttributes<HTMLInputElement> & CustomControllerProps<T>,
   'value' | 'error' | 'onChange'
-> &
-  CustomControllerProps<T>;
+> & {
+  onFieldChange?: (v: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
 const FeePasswordInput = <T extends FieldValues>(props: FeePasswordInputProps<T>) => {
   const defaultProps: Partial<FeePasswordInputProps<T>> = {

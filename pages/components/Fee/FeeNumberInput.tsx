@@ -11,11 +11,7 @@ import { CustomControllerProps } from '../../types';
 import React, { useEffect, useState } from 'react';
 
 type FeeNumberInputProps<T extends FieldValues> = Omit<
-  NumberInputProps &
-    React.RefAttributes<HTMLInputElement> & {
-      onFieldChange?: (v?: string) => void;
-      accuracyMethod?: 'round-down' | 'round-up' | 'round';
-    },
+  NumberInputProps & React.RefAttributes<HTMLInputElement> & CustomControllerProps<T>,
   | 'value'
   | 'error'
   | 'onChange'
@@ -28,8 +24,10 @@ type FeeNumberInputProps<T extends FieldValues> = Omit<
   | 'hideControls'
   | 'noClampOnBlur'
   | 'removeTrailingZeros'
-> &
-  CustomControllerProps<T>;
+> & {
+  onFieldChange?: (v?: string) => void;
+  accuracyMethod?: 'round-down' | 'round-up' | 'round';
+};
 
 const FeeNumberInput = <T extends FieldValues>(props: FeeNumberInputProps<T>) => {
   const defaultProps: Partial<FeeNumberInputProps<T>> = {

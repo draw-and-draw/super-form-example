@@ -5,14 +5,13 @@ import React from 'react';
 import { DatePicker, DatePickerProps } from '@mantine/dates';
 
 type FeeDatePickerProps<T extends FieldValues> = Omit<
-  DatePickerProps & React.RefAttributes<HTMLInputElement> & { onFieldChange?: (v: Date | null) => void },
+  DatePickerProps & React.RefAttributes<HTMLInputElement> & CustomControllerProps<T>,
   'value' | 'error' | 'onChange'
-> &
-  CustomControllerProps<T>;
+> & { onFieldChange?: (v: Date | null) => void };
 
 const FeeDatePicker = <T extends FieldValues>(props: FeeDatePickerProps<T>) => {
   const defaultProps: Partial<FeeDatePickerProps<T>> = {
-    placeholder: '请选择日期',
+    placeholder: '请选择',
   };
   const mergedProps = useComponentDefaultProps('FeeDatePicker', defaultProps, props);
 

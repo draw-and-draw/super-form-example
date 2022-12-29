@@ -4,14 +4,12 @@ import { CustomControllerProps } from '../../types';
 import React from 'react';
 
 type FeeRadioGroupProps<T extends FieldValues> = Omit<
-  RadioGroupProps &
-    React.RefAttributes<HTMLInputElement> & {
-      onFieldChange?: (v: string | null) => void;
-      data: { value: string; label: string }[];
-    },
-  'value' | 'error' | 'onChange'
-> &
-  CustomControllerProps<T>;
+  RadioGroupProps & React.RefAttributes<HTMLInputElement> & CustomControllerProps<T>,
+  'value' | 'error' | 'onChange' | 'children'
+> & {
+  onFieldChange?: (v: string | null) => void;
+  data: { value: string; label: string }[];
+};
 
 const FeeRadioGroup = <T extends FieldValues>(props: FeeRadioGroupProps<T>) => {
   const defaultProps: Partial<FeeRadioGroupProps<T>> = {};

@@ -4,11 +4,9 @@ import { CustomControllerProps } from '../../types';
 import React from 'react';
 
 type FeeTextInputProps<T extends FieldValues> = Omit<
-  TextInputProps &
-    React.RefAttributes<HTMLInputElement> & { onFieldChange?: (v: React.ChangeEvent<HTMLInputElement>) => void },
+  TextInputProps & React.RefAttributes<HTMLInputElement> & CustomControllerProps<T>,
   'value' | 'error' | 'onChange'
-> &
-  CustomControllerProps<T>;
+> & { onFieldChange?: (v: React.ChangeEvent<HTMLInputElement>) => void };
 
 const FeeTextInput = <T extends FieldValues>(props: FeeTextInputProps<T>) => {
   const defaultProps: Partial<FeeTextInputProps<T>> = {

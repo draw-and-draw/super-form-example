@@ -10,7 +10,10 @@ export interface FormValuesProps extends FieldValues {
   name: string;
   age: string;
   profession: ValueItem;
-  date: Date | null;
+  birthday: Date | null;
+  genre: string;
+  password: string;
+  description: string;
 }
 
 // 表单项使用的数据
@@ -18,4 +21,10 @@ export const professionData = [
   { label: '程序员', value: '1' },
   { label: '设计师', value: '2' },
   { label: '产品经理', value: '3' },
+];
+
+export const genreData = [
+  { label: '男', value: '1' },
+  { label: '女', value: '2' },
+  { label: '保密', value: '3' },
 ];

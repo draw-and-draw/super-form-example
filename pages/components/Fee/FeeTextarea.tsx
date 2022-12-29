@@ -4,13 +4,11 @@ import React from 'react';
 import { CustomControllerProps } from '../../types';
 
 type FeeTextareaProps<T extends FieldValues> = Omit<
-  TextareaProps &
-    React.RefAttributes<HTMLTextAreaElement> & {
-      onFieldChange?: (v: React.ChangeEvent<HTMLTextAreaElement>) => void;
-    },
+  TextareaProps & React.RefAttributes<HTMLTextAreaElement> & CustomControllerProps<T>,
   'value' | 'error' | 'onChange'
-> &
-  CustomControllerProps<T>;
+> & {
+  onFieldChange?: (v: React.ChangeEvent<HTMLTextAreaElement>) => void;
+};
 
 const FeeTextarea = <T extends FieldValues>(props: FeeTextareaProps<T>) => {
   const defaultProps: Partial<FeeTextareaProps<T>> = {
