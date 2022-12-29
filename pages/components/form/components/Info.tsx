@@ -21,6 +21,7 @@ const Info = () => {
               age: errors.age?.message,
               // @ts-ignore
               profession: { id: errors?.profession?.id?.message, name: errors?.profession?.name?.message },
+              date: errors.date?.message,
             },
             null,
             2,

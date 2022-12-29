@@ -7,6 +7,7 @@ specifiers:
   '@emotion/server': ^11.10.0
   '@hookform/resolvers': ^2.9.10
   '@mantine/core': ^5.9.5
+  '@mantine/dates': ^5.9.5
   '@mantine/hooks': ^5.9.5
   '@mantine/next': ^5.9.5
   '@mantine/prism': ^5.9.5
@@ -16,6 +17,7 @@ specifiers:
   '@types/react-dom': 18.0.9
   '@typescript-eslint/eslint-plugin': ^5.47.0
   '@typescript-eslint/parser': ^5.47.0
+  dayjs: ^1.11.7
   eslint: 8.30.0
   eslint-config-alloy: ^4.7.0
   eslint-config-next: 13.0.7
@@ -34,6 +36,7 @@ dependencies:
   '@emotion/server': 11.10.0
   '@hookform/resolvers': 2.9.10_react-hook-form@7.41.0
   '@mantine/core': 5.9.5_hzg3oku4uxnt5crkeceagoktyy
+  '@mantine/dates': 5.9.5_q32zbbv6l2fjmvb2dpa2q3dhma
   '@mantine/hooks': 5.9.5_react@18.2.0
   '@mantine/next': 5.9.5_odc7g525exkk54a4anpochw4ci
   '@mantine/prism': 5.9.5_h4zmljtfubfbwzvuu4gizrlimy
@@ -43,6 +46,7 @@ dependencies:
   '@types/react-dom': 18.0.9
   '@typescript-eslint/eslint-plugin': 5.47.0_ncmi6noazr3nzas7jxykisekym
   '@typescript-eslint/parser': 5.47.0_lzzuuodtsqwxnvqeq4g4likcqa
+  dayjs: 1.11.7
   eslint: 8.30.0
   eslint-config-alloy: 4.7.0_v5qmicaeaf5b5tmxtojqxzsgzm
   eslint-config-next: 13.0.7_lzzuuodtsqwxnvqeq4g4likcqa
@@ -548,6 +552,21 @@ packages:
     transitivePeerDependencies:
       - '@emotion/react'
       - '@types/react'
+    dev: false
+
+  /@mantine/dates/5.9.5_q32zbbv6l2fjmvb2dpa2q3dhma:
+    resolution: {integrity: sha512-lxjkoZ3DXIrJ/81X6FMd14PNoLE5qFm/cJumba0wy1OkhFjj2Ua9qEWOQs3lnjnrj9ocxCAy5DkRAoGdNfUNtQ==, tarball: repository/npm/@mantine/dates/-/dates-5.9.5.tgz}
+    peerDependencies:
+      '@mantine/core': 5.9.5
+      '@mantine/hooks': 5.9.5
+      dayjs: '>=1.0.0'
+      react: '>=16.8.0'
+    dependencies:
+      '@mantine/core': 5.9.5_hzg3oku4uxnt5crkeceagoktyy
+      '@mantine/hooks': 5.9.5_react@18.2.0
+      '@mantine/utils': 5.9.5_react@18.2.0
+      dayjs: 1.11.7
+      react: 18.2.0
     dev: false
 
   /@mantine/hooks/5.9.5_react@18.2.0:
@@ -1380,6 +1399,10 @@ packages:
 
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==, tarball: repository/npm/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz}
+    dev: false
+
+  /dayjs/1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==, tarball: repository/npm/dayjs/-/dayjs-1.11.7.tgz}
     dev: false
 
   /debug/2.6.9:
