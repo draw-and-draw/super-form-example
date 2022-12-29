@@ -8,7 +8,7 @@ import {
   useFormContext,
 } from 'react-hook-form';
 import { CustomControllerProps } from '../../types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 type FeeNumberInputProps<T extends FieldValues> = Omit<
   NumberInputProps &
@@ -40,7 +40,11 @@ const FeeNumberInput = <T extends FieldValues>(props: FeeNumberInputProps<T>) =>
 
   const { control, watch } = useFormContext();
 
-  const [displayValue, setDisplayValue] = useState<string>(watch(mergedProps.name));
+  const [displayValue, setDisplayValue] = useState<string>();
+
+  useEffect(() => {
+    setDisplayValue(watch(mergedProps.name));
+  }, [mergedProps.name, watch]);
 
   const value = (mergedProps.formatter?.(displayValue) || displayValue)?.trim();
 
