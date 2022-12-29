@@ -4,7 +4,6 @@ import { FieldValues, FormProvider, Resolver, useForm, UseFormProps } from 'reac
 
 const useFormStyle = createStyles(() => ({
   root: {
-    width: 300,
     '.mantine-InputWrapper-root': { position: 'relative' },
     '.mantine-InputWrapper-error': { position: 'absolute', bottom: 0 },
     '.mantine-Input-wrapper': {

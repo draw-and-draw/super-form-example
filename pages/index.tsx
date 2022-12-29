@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const formData = useFormData<FormValuesProps>({
-    initialValues: { name: 'zyyy', age: 18, profession: { id: '1', name: null } },
+    initialValues: { name: 'zyyy', age: '18', profession: { id: '1', name: null } },
     onSubmit: async (data) => console.log(data),
     validationResolver: yupResolver(
       yup

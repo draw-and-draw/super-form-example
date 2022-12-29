@@ -9,7 +9,11 @@ const FormFields = () => {
 
   return (
     <Group align="flex-start" position="center" noWrap sx={{ width: '100%' }}>
-      <Stack>
+      <Stack
+        sx={{
+          width: 300,
+        }}
+      >
         <FeeTextInput name="name" label="名称" withAsterisk />
         <FeeNumberInput
           name="age"
