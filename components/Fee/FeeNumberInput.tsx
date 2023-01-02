@@ -7,7 +7,7 @@ import {
   UnPackAsyncDefaultValues,
   useFormContext,
 } from 'react-hook-form';
-import { CustomControllerProps } from '../../types';
+import { CustomControllerProps } from '../../../types';
 import React, { useEffect, useState } from 'react';
 
 type FeeNumberInputProps<T extends FieldValues> = Omit<

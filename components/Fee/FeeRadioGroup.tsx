@@ -1,6 +1,6 @@
 import { Radio, RadioGroupProps, useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
-import { CustomControllerProps } from '../../types';
+import { CustomControllerProps } from '../../../types';
 import React from 'react';
 
 type FeeRadioGroupProps<T extends FieldValues> = Omit<

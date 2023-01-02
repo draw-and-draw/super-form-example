@@ -1,18 +1,20 @@
-import { TextInput, TextInputProps, useComponentDefaultProps } from '@mantine/core';
+import { PasswordInput, PasswordInputProps, useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
-import { CustomControllerProps } from '../../types';
 import React from 'react';
+import { CustomControllerProps } from '../../../types';
 
-type FeeTextInputProps<T extends FieldValues> = Omit<
-  TextInputProps & React.RefAttributes<HTMLInputElement> & CustomControllerProps<T>,
+type FeePasswordInputProps<T extends FieldValues> = Omit<
+  PasswordInputProps & React.RefAttributes<HTMLInputElement> & CustomControllerProps<T>,
   'value' | 'error' | 'onChange'
-> & { onFieldChange?: (v: React.ChangeEvent<HTMLInputElement>) => void };
+> & {
+  onFieldChange?: (v: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-const FeeTextInput = <T extends FieldValues>(props: FeeTextInputProps<T>) => {
-  const defaultProps: Partial<FeeTextInputProps<T>> = {
+const FeePasswordInput = <T extends FieldValues>(props: FeePasswordInputProps<T>) => {
+  const defaultProps: Partial<FeePasswordInputProps<T>> = {
     placeholder: '请输入',
   };
-  const mergedProps = useComponentDefaultProps('FeeTextInput', defaultProps, props);
+  const mergedProps = useComponentDefaultProps('FeePasswordInput', defaultProps, props);
 
   const { control } = useFormContext();
 
@@ -21,7 +23,7 @@ const FeeTextInput = <T extends FieldValues>(props: FeeTextInputProps<T>) => {
       name={mergedProps.name}
       control={control}
       render={({ field, fieldState }) => (
-        <TextInput
+        <PasswordInput
           {...mergedProps}
           value={field.value}
           onChange={(v) => {
@@ -39,4 +41,4 @@ const FeeTextInput = <T extends FieldValues>(props: FeeTextInputProps<T>) => {
   );
 };
 
-export default FeeTextInput;
+export default FeePasswordInput;

@@ -1,6 +1,6 @@
 import { useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
-import { CustomControllerProps } from '../../types';
+import { CustomControllerProps } from '../../../types';
 import React from 'react';
 import { DatePicker, DatePickerProps } from '@mantine/dates';
 
