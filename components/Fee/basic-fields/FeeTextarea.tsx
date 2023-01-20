@@ -1,7 +1,7 @@
 import { Textarea, TextareaProps, useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
 import React from 'react';
-import { CustomControllerProps } from '.';
+import { CustomControllerProps } from '../Fee.type';
 
 type FeeTextareaProps<T extends FieldValues> = Omit<
   TextareaProps & React.RefAttributes<HTMLTextAreaElement> & CustomControllerProps<T>,
@@ -25,7 +25,7 @@ const FeeTextarea = <T extends FieldValues>(props: FeeTextareaProps<T>) => {
       render={({ field, fieldState }) => (
         <Textarea
           {...mergedProps}
-          value={field.value}
+          value={field.value || ''}
           onChange={(v) => {
             field.onChange(v);
             mergedProps.onFieldChange?.(v);

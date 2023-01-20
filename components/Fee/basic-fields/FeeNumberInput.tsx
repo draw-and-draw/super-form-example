@@ -1,6 +1,6 @@
 import { NumberInputProps, TextInput, useComponentDefaultProps } from '@mantine/core';
-import { Controller, ControllerRenderProps, FieldPath, FieldValues, Path, useFormContext } from 'react-hook-form';
-import { CustomControllerProps } from '.';
+import { Controller, ControllerRenderProps, FieldValues, Path, FieldPath, useFormContext } from 'react-hook-form';
+import { CustomControllerProps } from '../Fee.type';
 import React, { useEffect, useState } from 'react';
 
 type FeeNumberInputProps<T extends FieldValues> = Omit<
@@ -27,17 +27,21 @@ const FeeNumberInput = <T extends FieldValues>(props: FeeNumberInputProps<T>) =>
     placeholder: '请输入',
     accuracyMethod: 'round-down',
   };
-  const mergedProps = useComponentDefaultProps('FeeNumberInput', defaultProps, props);
+
+  // todo: accuracyMethod
+  // 精度处理方法需要在未来版本中实现
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { accuracyMethod, ...mergedProps } = useComponentDefaultProps('FeeNumberInput', defaultProps, props);
 
   const { control, watch } = useFormContext();
 
   const [displayValue, setDisplayValue] = useState<string>();
 
   useEffect(() => {
-    setDisplayValue(watch(mergedProps.name));
-  }, [mergedProps.name, watch]);
+    setDisplayValue(String(watch(mergedProps.name)));
+  }, [watch(mergedProps.name)]);
 
-  const value = (mergedProps.formatter?.(displayValue) || displayValue)?.trim();
+  const value = (mergedProps.formatter?.(displayValue) || displayValue)?.trim?.();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -133,7 +137,7 @@ const FeeNumberInput = <T extends FieldValues>(props: FeeNumberInputProps<T>) =>
       render={({ field, fieldState }) => (
         <TextInput
           {...mergedProps}
-          value={value}
+          value={value || ''}
           onChange={(e) => handleChange(e, field)}
           onBlur={(e) => handleBlur(e, field)}
           error={fieldState.error?.message}

@@ -1,6 +1,6 @@
 import { Radio, RadioGroupProps, useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
-import { CustomControllerProps } from '.';
+import { CustomControllerProps } from '../Fee.type';
 import React from 'react';
 
 type FeeRadioGroupProps<T extends FieldValues> = Omit<
@@ -24,7 +24,7 @@ const FeeRadioGroup = <T extends FieldValues>(props: FeeRadioGroupProps<T>) => {
       render={({ field, fieldState }) => (
         <Radio.Group
           {...mergedProps}
-          value={field.value}
+          value={field.value || ''}
           onChange={(v) => {
             field.onChange(v);
             mergedProps.onFieldChange?.(v);
@@ -33,8 +33,7 @@ const FeeRadioGroup = <T extends FieldValues>(props: FeeRadioGroupProps<T>) => {
             field.onBlur();
             mergedProps.onBlur?.(e);
           }}
-          error={fieldState.error?.message}
-        >
+          error={fieldState.error?.message}>
           {mergedProps.data.map((item) => (
             <Radio value={item.value} label={item.label} key={item.value} />
           ))}

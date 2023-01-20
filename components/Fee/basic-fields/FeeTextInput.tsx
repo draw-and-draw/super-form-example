@@ -1,6 +1,6 @@
 import { TextInput, TextInputProps, useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
-import { CustomControllerProps } from '.';
+import { CustomControllerProps } from '../Fee.type';
 import React from 'react';
 
 type FeeTextInputProps<T extends FieldValues> = Omit<
@@ -23,7 +23,7 @@ const FeeTextInput = <T extends FieldValues>(props: FeeTextInputProps<T>) => {
       render={({ field, fieldState }) => (
         <TextInput
           {...mergedProps}
-          value={field.value}
+          value={field.value || ''}
           onChange={(v) => {
             field.onChange(v);
             mergedProps.onFieldChange?.(v);
