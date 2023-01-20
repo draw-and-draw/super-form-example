@@ -1,7 +1,7 @@
 import { Textarea, TextareaProps, useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
 import React from 'react';
-import { CustomControllerProps } from '../../../types';
+import { CustomControllerProps } from '.';
 
 type FeeTextareaProps<T extends FieldValues> = Omit<
   TextareaProps & React.RefAttributes<HTMLTextAreaElement> & CustomControllerProps<T>,

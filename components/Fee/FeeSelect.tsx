@@ -3,7 +3,7 @@ import { Controller, FieldValues, useFormContext } from 'react-hook-form';
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useDebouncedValue } from '@mantine/hooks';
-import { CustomControllerProps } from '../../../types';
+import { CustomControllerProps } from '.';
 
 type FeeSelectProps<T extends FieldValues> = Omit<
   SelectProps & React.RefAttributes<HTMLInputElement> & CustomControllerProps<T>,

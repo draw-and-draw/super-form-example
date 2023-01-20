@@ -1,7 +1,7 @@
 import { PasswordInput, PasswordInputProps, useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
 import React from 'react';
-import { CustomControllerProps } from '../../../types';
+import { CustomControllerProps } from '.';
 
 type FeePasswordInputProps<T extends FieldValues> = Omit<
   PasswordInputProps & React.RefAttributes<HTMLInputElement> & CustomControllerProps<T>,

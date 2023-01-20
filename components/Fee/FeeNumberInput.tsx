@@ -1,13 +1,6 @@
 import { NumberInputProps, TextInput, useComponentDefaultProps } from '@mantine/core';
-import {
-  Controller,
-  ControllerRenderProps,
-  FieldValues,
-  Path,
-  UnPackAsyncDefaultValues,
-  useFormContext,
-} from 'react-hook-form';
-import { CustomControllerProps } from '../../../types';
+import { Controller, ControllerRenderProps, FieldPath, FieldValues, Path, useFormContext } from 'react-hook-form';
+import { CustomControllerProps } from '.';
 import React, { useEffect, useState } from 'react';
 
 type FeeNumberInputProps<T extends FieldValues> = Omit<
@@ -48,7 +41,7 @@ const FeeNumberInput = <T extends FieldValues>(props: FeeNumberInputProps<T>) =>
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    field: ControllerRenderProps<FieldValues, (string | undefined) & Path<UnPackAsyncDefaultValues<T>>>,
+    field: ControllerRenderProps<FieldValues, (string | undefined) & Path<FieldPath<T>>>,
   ) => {
     // 去除非数字字符
     let toggleValue = (mergedProps.parser?.(e.target.value) || e.target.value).replace(/[^0-9.-]/g, '');
@@ -62,7 +55,7 @@ const FeeNumberInput = <T extends FieldValues>(props: FeeNumberInputProps<T>) =>
   // eslint-disable-next-line complexity
   const handleBlur = (
     e: React.FocusEvent<HTMLInputElement, Element>,
-    field: ControllerRenderProps<FieldValues, (string | undefined) & Path<UnPackAsyncDefaultValues<T>>>,
+    field: ControllerRenderProps<FieldValues, (string | undefined) & Path<FieldPath<T>>>,
   ) => {
     if (displayValue) {
       let dotIndex = displayValue.indexOf('.');

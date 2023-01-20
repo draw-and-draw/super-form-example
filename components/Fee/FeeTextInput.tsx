@@ -1,6 +1,6 @@
 import { TextInput, TextInputProps, useComponentDefaultProps } from '@mantine/core';
 import { Controller, FieldValues, useFormContext } from 'react-hook-form';
-import { CustomControllerProps } from '../../../types';
+import { CustomControllerProps } from '.';
 import React from 'react';
 
 type FeeTextInputProps<T extends FieldValues> = Omit<
