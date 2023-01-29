@@ -39,13 +39,14 @@ const FeeNumberInput = <T extends FieldValues>(props: FeeNumberInputProps<T>) =>
 
   useEffect(() => {
     setDisplayValue(String(watch(mergedProps.name)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watch(mergedProps.name)]);
 
   const value = (mergedProps.formatter?.(displayValue) || displayValue)?.trim?.();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    field: ControllerRenderProps<FieldValues, (string | undefined) & Path<FieldPath<T>>>,
+    field: ControllerRenderProps<FieldValues, (string | undefined) & FieldPath<T>>,
   ) => {
     // 去除非数字字符
     let toggleValue = (mergedProps.parser?.(e.target.value) || e.target.value).replace(/[^0-9.-]/g, '');
@@ -59,7 +60,7 @@ const FeeNumberInput = <T extends FieldValues>(props: FeeNumberInputProps<T>) =>
   // eslint-disable-next-line complexity
   const handleBlur = (
     e: React.FocusEvent<HTMLInputElement, Element>,
-    field: ControllerRenderProps<FieldValues, (string | undefined) & Path<FieldPath<T>>>,
+    field: ControllerRenderProps<FieldValues, (string | undefined) & FieldPath<T>>,
   ) => {
     if (displayValue) {
       let dotIndex = displayValue.indexOf('.');

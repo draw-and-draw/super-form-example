@@ -14,6 +14,7 @@ const BaseCalc = () => {
       setValue('socialSecurityRemittanceBase', 34188);
       setValue('providentFundRemittanceBase', 34188);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watch('baseSalary')]);
 
   return (
